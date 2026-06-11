@@ -8,6 +8,7 @@ import com.example.order.model.Orders;
 
 @Repository
 public interface OrderRepo extends JpaRepository<Orders, Integer> {
-  @Query(value = "SELECT * FROM order WHERE id = ?1", nativeQuery = true)
+
+    @Query(value = "SELECT * FROM orders WHERE id = ?1", nativeQuery = true)
     Orders getOrderById(Integer orderId);
 }
