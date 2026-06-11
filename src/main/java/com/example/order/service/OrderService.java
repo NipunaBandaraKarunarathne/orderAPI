@@ -33,7 +33,20 @@ public class OrderService {
         return orderDTO;
 
     }
+      public OrderDTO getOrderById(Integer orderId) {
+        Orders order = orderRepo.getOrderById(orderId);
+        return modelMapper.map(order, OrderDTO.class);
+    }
 
+        public OrderDTO updateOrder(OrderDTO orderDTO) {
+        orderRepo.save(modelMapper.map(orderDTO, Orders.class));
+        return orderDTO;
+    }
+
+    public String deleteOrder(Integer orderId) {
+        orderRepo.deleteById(orderId);
+        return "Order deleted";
+    }
  
 
 }
